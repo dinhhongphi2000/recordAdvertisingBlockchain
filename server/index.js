@@ -4,7 +4,7 @@ var app = express();
 var routers = require('./routers');
 
 /**
- * config statis file
+ * config static file
  */
 app.use('/scripts/video.js',express.static(__dirname + '/node_modules/video.js/dist/video.min.js'))
 app.use('/scripts/videojs.ads.min.js', express.static(__dirname + '/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js'))
