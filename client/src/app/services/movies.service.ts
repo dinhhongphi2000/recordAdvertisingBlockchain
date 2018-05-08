@@ -24,10 +24,10 @@ export class MoviesService {
     }) 
   }
 
-  getAMovie():Promise<any>{
+  getAMovie(id : string):Promise<any>{
     
     return Promise((resolve,reject) => {
-      this.http.get<Movie>(this.urlmovie).subscribe(
+      this.http.get<Movie>(`${this.urlmovie}/${id}`).subscribe(
         data=>{
             resolve(data as Movie);
           
