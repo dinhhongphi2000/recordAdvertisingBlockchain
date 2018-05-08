@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { VideoComponent } from './components/video/video.component';
@@ -10,6 +10,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SingleComponent } from './components/single/single.component';
+import { AdvertisementService } from './services/advertisement.service';
 
 
 @NgModule({
@@ -24,9 +25,10 @@ import { SingleComponent } from './components/single/single.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AdvertisementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

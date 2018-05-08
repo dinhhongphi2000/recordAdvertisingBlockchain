@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./single.component.css']
 })
 export class SingleComponent implements OnInit {
-
+  src = "assets/films/1.mp4";
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
