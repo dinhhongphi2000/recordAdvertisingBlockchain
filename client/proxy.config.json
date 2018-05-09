@@ -1,5 +1,5 @@
 {
-    "/films": {
+    "/video": {
        "target": "http://localhost:8080",
        "secure": false
     },
@@ -13,6 +13,6 @@
     },
     "/images" : {
         "target": "http://localhost:8080",
-       "secure": false
+       "secure": false                      
     }
  }

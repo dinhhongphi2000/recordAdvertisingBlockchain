@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./single.component.css']
 })
 export class SingleComponent implements OnInit {
-  src = "/films/1.mp4";
+  src :any = undefined;
   movie : Movie = new Movie();
   constructor(
     private movieService : MoviesService,
