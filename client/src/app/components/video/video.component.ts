@@ -3,51 +3,10 @@ import * as videojs from 'video.js';
 import { AdvertisementService } from '../../services/advertisement.service'
 import { Advertisement } from '../../models/Advertisement'
 import '../../../../node_modules/videojs-contrib-ads/dist/videojs.ads.js'
-import '@videojs/http-streaming'
-var ComponentVideoJS = videojs.getComponent('Component');
+import { SkipButton } from '../../lib/SkipButton';
+
 var adRunNext = 0
 var adInited = 0;
-
-var skipButton = videojs.extend(ComponentVideoJS, {
-  constructor: function (player, options) {
-    ComponentVideoJS.apply(this, arguments);
-    this.countDownToCloseAds(player)
-  },
-
-  createEl: function () {
-    return videojs.createEl('div', {
-      className: 'vjs-skip-button'
-    });
-  },
-
-  countDownToCloseAds(player, maxTime = 3) {
-    this.updateTextContent("Skip in " + maxTime);
-    let self = this
-    let timeout: number
-    timeout = <any>setInterval(function () {
-      --maxTime
-      self.updateTextContent("Skip in " + maxTime);
-      if (maxTime <= 0) {
-        self.updateTextContent("Click to skip ads");
-        window.clearInterval(timeout);
-        //allow close ads
-        self.on('click', function () {
-          player.ads.endLinearAdMode()
-          player.trigger('ads-ad-started');
-          player.removeChild('skipButton');
-        });
-      }
-    }, 1000)
-  },
-
-  updateTextContent: function (text) {
-    if (typeof text !== 'string') {
-      text = 'Title Unknown';
-    }
-    videojs.emptyEl(this.el());
-    videojs.appendContent(this.el(), text);
-  }
-});
 
 @Component({
   selector: 'app-video',
@@ -68,6 +27,7 @@ export class VideoComponent implements AfterViewChecked {
   }
 
   initPlayer() {
+    let skipButton = new SkipButton();
     var self = this;
     this.player = videojs('example_video_1', {
       controls: true,
@@ -78,23 +38,18 @@ export class VideoComponent implements AfterViewChecked {
     })
 
     // Register the component with Video.js, so it can be used in players.
-    videojs.registerComponent('skipButton', skipButton);
-    console.log(self.player.src())
+    videojs.registerComponent('skipButton', skipButton.getComponent());
 
     this.player.on('readyforpreroll', () => {
-
       console.log('readyforpreroll');
       self.player.ads.startLinearAdMode();
 
       //get random advetisement
       self.advertisementService.getRandom().subscribe((data: Advertisement) => {
         self.player.src({
-          src: '/api/advertisements/' + data.index,
-          type: 'video/mp4',
-          withCredentials: true
+          src:  data.url,
+          type: 'video/mp4'
         });
-
-        console.log('/api/advertisements/' + data.index)
       })
 
       //trigger to remove spinner

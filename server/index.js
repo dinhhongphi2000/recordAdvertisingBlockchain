@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express();
-
+var bodyParser = require('body-parser')
 var routers = require('./routers');
 
 
@@ -13,6 +13,8 @@ app.use('/styles/video-js.css',express.static(__dirname + '/node_modules/video.j
 app.use('/styles/videojs.ads.css', express.static(__dirname + '/node_modules/videojs-contrib-ads/dist/videojs.ads.css'))
 
 app.use(express.static(__dirname + '/assert/'))
+// parse application/json
+app.use(bodyParser.json())
 
 /**
   * config route

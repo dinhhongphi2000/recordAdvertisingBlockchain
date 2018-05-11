@@ -1,3 +1,3 @@
 export interface Advertisement {
-    index : String
+    url : String
 }
