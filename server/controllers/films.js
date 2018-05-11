@@ -4,7 +4,7 @@
 			name : "127 gio sinh tu",
 			description : "phim hay lam",
 			poster: "/images/c5.jpg",
-			url : "/films/1.mp4"
+			url : "/video/films/1.mp4"
 		},
 		{
 			id : "2",

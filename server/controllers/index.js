@@ -1,4 +1,5 @@
-let Controllers = {}
-Controllers['advertisements'] = require('./advertisements');
-Controllers['films'] = require('./films');
+let Controllers = {
+    advertisements : require('./advertisements'),
+    films : require('./films')
+}
 module.exports = Controllers;

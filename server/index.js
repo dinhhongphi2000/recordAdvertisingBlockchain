@@ -3,6 +3,7 @@ var app = express();
 
 var routers = require('./routers');
 
+
 /**
  * config static file
  */
@@ -10,6 +11,7 @@ app.use('/scripts/video.js',express.static(__dirname + '/node_modules/video.js/d
 app.use('/scripts/videojs.ads.min.js', express.static(__dirname + '/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js'))
 app.use('/styles/video-js.css',express.static(__dirname + '/node_modules/video.js/dist/video-js.min.css'))
 app.use('/styles/videojs.ads.css', express.static(__dirname + '/node_modules/videojs-contrib-ads/dist/videojs.ads.css'))
+
 app.use(express.static(__dirname + '/assert/'))
 
 /**
