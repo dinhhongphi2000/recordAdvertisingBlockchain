@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import * as $ from 'jquery'
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',

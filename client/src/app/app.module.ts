@@ -12,6 +12,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { SingleComponent } from './components/single/single.component';
 import { AdvertisementService } from './services/advertisement.service';
 import { MoviesService } from './services/movies.service';
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MoviesService } from './services/movies.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    OwlModule
   ],
   providers: [
     AdvertisementService,
