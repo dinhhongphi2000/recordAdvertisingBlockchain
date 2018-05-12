@@ -28,13 +28,14 @@
         "../node_modules/videojs-contrib-ads/dist/videojs.ads.css",
         "../node_modules/videojs-contrib-ads/dist/videojs-contrib-ads.css",
         "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/owl.carousel/dist/assets/owl.carousel.css",
+        "../node_modules/owl.carousel/dist/assets/owl.theme.default.css",
         
         
         "css/style.css",
         "css/bootstrap.css",
         "css/font-awesome.min.css",
         "css/news.css",
-        "css/owl.carousel.css",
         "css/contactstyle.css",
         "css/faqstyle.css",
         "css/single.css",

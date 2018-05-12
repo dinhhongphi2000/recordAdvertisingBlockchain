@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service'
-import { Movie } from '../../services/class/movie';
+import { Movie } from '../../models/movie';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -17,14 +17,17 @@ export class SingleComponent implements OnInit {
   ) { 
     
   }
+  ngOnInit(){
 
-  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     this.route.params.forEach((params: Params) => {
 
       let id = +params['id'];
 
       this.movieService.getAMovie(id.toString())
-      .then(
+      .subscribe(
         result => {
           this.movie = result;
           this.src = this.movie.url;

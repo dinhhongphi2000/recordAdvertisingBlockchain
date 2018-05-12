@@ -3,17 +3,16 @@ import { HttpClient } from '@angular/common/http';
 
 import { Advertisement } from '../models/Advertisement';
 
-const AdvertisementUrl = {
-  getRandomUrl : "/api/advertisements/random"
-}
+
 
 @Injectable()
 export class AdvertisementService {
-
+  AdvertisementUrl : string = "/api/advertisements/random";
   constructor(private http : HttpClient) { }
 
+
   getRandom(){
-    return this.http.get<Advertisement>(AdvertisementUrl.getRandomUrl);
+    return this.http.get<Advertisement>(this.AdvertisementUrl);
   }
 
 }
