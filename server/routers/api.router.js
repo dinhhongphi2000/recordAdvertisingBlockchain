@@ -8,7 +8,6 @@ var controllers = require('../controllers');
 app.get('/films',controllers.films.getFilmInfo)
 app.get('/films/:id',controllers.films.getFilm)
 app.get('/advertisements/random',controllers.advertisements.randomVideo)
-app.get('/advertisements/:id',controllers.advertisements.getAdvertisement)
 
 module.exports = function(){
     return app;
