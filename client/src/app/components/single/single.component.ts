@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service'
-import { Movie } from '../../services/class/movie';
+import { Movie } from '../../models/movie';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({

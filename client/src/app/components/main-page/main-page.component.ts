@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import * as $ from 'jquery'
 import { MoviesService } from '../../services/movies.service'
-import { Movie } from '../../services/class/movie';
+import { Movie } from '../../models/movie';
 import {OwlCarousel} from 'ngx-owl-carousel';
 
 
