@@ -2,32 +2,37 @@
 		{
 			id : "1",
 			name : "127 gio sinh tu",
-			description : "bad",
-			url : "/films/1.mp4"
+			description : "phim hay lam",
+			poster: "/images/c5.jpg",
+			url : "/video/films/1.mp4"
 		},
 		{
 			id : "2",
 			name : "bao mau sieu quay",
-			description : "badsfad",
-			url : "/films/2.mp4"
+			description : "good phim",
+			poster: "/images/c6.jpg",
+			url : "/video/films/2.mp4"
 		},
 		{
 			id : "3",
 			name : "4 nam 2 chang 1 tinh yeu",
-			description : "badsfad",
-			url : "ththt.com"
+			description : "good",
+			poster: "/images/c7.jpg",
+			url : "/video/films/3.mp4"
 		},
 		{
 			id : "4",
 			name : "Lat mat 1",
-			description : "badsfad",
-			url : "kiki.com"
+			description : "good",
+			poster: "/images/c8.jpg",
+			url : "/video/films/4.mp4"
 		},
 		{
 			id : "5",
 			name : "Lat mat 2",
-			description : "badsfad",
-			url : "awswd.com"
+			description : "good",
+			poster: "/images/c9.jpg",
+			url : "/video/films/5.mp4"
 		}
 	]
 exports.getFilm = function(req,res){

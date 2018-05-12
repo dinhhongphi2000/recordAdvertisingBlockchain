@@ -11,7 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SingleComponent } from './components/single/single.component';
 import { AdvertisementService } from './services/advertisement.service';
-
+import { MoviesService } from './services/movies.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,10 @@ import { AdvertisementService } from './services/advertisement.service';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [AdvertisementService],
+  providers: [
+    AdvertisementService,
+    MoviesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

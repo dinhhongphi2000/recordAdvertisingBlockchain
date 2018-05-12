@@ -2,3 +2,5 @@
 **/dist/**
 **/e2e/**
 **/*.mp4
+package-lock.json
+.vscode/**

@@ -1,5 +1,5 @@
-let Route = {}
-
-Route['default'] = require('./api.router');
-
+let Route = {
+    default : require('./api.router'),
+    fobidden : require('./fobidden')
+}
 module.exports = Route;

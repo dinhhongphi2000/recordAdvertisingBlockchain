@@ -5,7 +5,7 @@ import { SingleComponent } from './components/single/single.component'
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
-  { path: 'single', component: SingleComponent },
+  { path: 'single/:id', component: SingleComponent },
   { path: '**', redirectTo: '' }
 
 ];
