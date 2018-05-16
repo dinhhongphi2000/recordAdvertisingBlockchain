@@ -13,14 +13,22 @@ app.use('/styles/video-js.css',express.static(__dirname + '/node_modules/video.j
 app.use('/styles/videojs.ads.css', express.static(__dirname + '/node_modules/videojs-contrib-ads/dist/videojs.ads.css'))
 
 app.use(express.static(__dirname + '/assert/'))
+app.use(express.static(__dirname + '/models/'))
 // parse application/json
 app.use(bodyParser.json())
 
 /**
   * config route
   */
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/database1')
+	   .then(() => {
+         console.log('Database connection successful')
+       })
+       .catch(err => {
+         console.error('Database connection error')
+       })
 app.use('/api',routers.default());
-
 /**
  * starting server
  */
