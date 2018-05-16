@@ -1,44 +1,14 @@
 const fs = require('fs');
-
-var Model = [
-	{
-		url: '/video/advertisements/10.mp4'
-	},
-	{
-		url: '/video/advertisements/11.mp4'
-	},
-	{
-		url: '/video/advertisements/12.mp4'
-	},
-	{
-		url: '/video/advertisements/13.mp4'
-	},
-	{
-		url: '/video/advertisements/14.mp4'
-	},
-	{
-		url: '/video/advertisements/15.mp4'
-	},
-	{
-		url: '/video/advertisements/16.mp4'
-	},
-	{
-		url: '/video/advertisements/17.mp4'
-	},
-	{
-		url: '/video/advertisements/18.mp4'
-	},
-	{
-		url: '/video/advertisements/19.mp4'
-	},
-	{
-		url: '/video/advertisements/20.mp4'
-	},
-]
-
+var advertisementsModel = require('../models/advertisement.js');
 exports.randomVideo = function (req, res) {
-	let index = Math.floor(Math.random() * Model.length)
-	res.json(Model[index])
+	advertisementsModel.find()
+	.then(doc => {
+		let index = Math.floor(Math.random() * doc.length);
+		res.status(200).json(doc[index]);
+	})
+	.catch(err => {
+		res.status(500).send('error load advertisements from database');
+	})
 }
 
 // exports.getAdvertisement = function (req, res) {
