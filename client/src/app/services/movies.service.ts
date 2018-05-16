@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Promise } from 'q';
-import { Movie } from './class/movie'
+import { Movie } from '../models/movie'
 
 @Injectable()
 export class MoviesService {
@@ -9,33 +8,11 @@ export class MoviesService {
   constructor(
     public http : HttpClient,
   ) { }
-  getAllMovies():Promise<any>{
-    
-    return Promise((resolve,reject) => {
-      this.http.get<Movie[]>(this.urlmovie).subscribe(
-        data=>{
-            resolve(data as Movie[]);
-          
-        },
-        error=>{
-          reject(error);
-        }
-      )
-    }) 
+  getAllMovies(){
+     return this.http.get<Movie[]>(this.urlmovie);
   }
 
-  getAMovie(id : string):Promise<any>{
-    
-    return Promise((resolve,reject) => {
-      this.http.get<Movie>(`${this.urlmovie}/${id}`).subscribe(
-        data=>{
-            resolve(data as Movie);
-          
-        },
-        error=>{
-          reject(error);
-        }
-      )
-    }) 
+  getAMovie(id : string){
+    return this.http.get<Movie>(`${this.urlmovie}/${id}`);
   }
 }

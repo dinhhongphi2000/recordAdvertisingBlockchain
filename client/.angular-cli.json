@@ -28,13 +28,12 @@
         "../node_modules/videojs-contrib-ads/dist/videojs.ads.css",
         "../node_modules/videojs-contrib-ads/dist/videojs-contrib-ads.css",
         "../node_modules/font-awesome/css/font-awesome.css",
-        
-        
+        "../node_modules/owl.carousel/dist/assets/owl.carousel.css",
+        "../node_modules/owl.carousel/dist/assets/owl.theme.default.css",
         "css/style.css",
         "css/bootstrap.css",
         "css/font-awesome.min.css",
         "css/news.css",
-        "css/owl.carousel.css",
         "css/contactstyle.css",
         "css/faqstyle.css",
         "css/single.css",
@@ -46,13 +45,12 @@
         "list-css/list.css",
         "list-css/table-style.css",
         "news-css/news.css"
-        
       ],
       "scripts": [
         "../node_modules/video.js/dist/video.min.js",
         "../node_modules/videojs-contrib-ads/dist/videojs.ads.min.js",
-        "../node_modules/jquery/dist/jquery.min.js"
-        
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/owl.carousel/dist/owl.carousel.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
