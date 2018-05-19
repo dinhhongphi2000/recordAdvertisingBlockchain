@@ -5,11 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startServer" : "set NODE_PATH=. && node index.js"
+    "startServer": "set NODE_PATH=. && node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "config": "^1.30.0",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "keystone": "^4.0.0-beta.8",
+    "mongoose": "^5.1.1",
+    "node-sass": "^4.9.0"
   }
 }

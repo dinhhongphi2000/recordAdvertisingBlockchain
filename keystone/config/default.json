@@ -1,0 +1,39 @@
+{
+    "init": {
+        "less": "public",
+        "static": [
+            "/assert/"
+        ],
+        "favicon": "public/favicon.ico",
+        "auto update": false,
+        "user model": "User",
+        "ga property": "UA-62254320-3",
+        "port": 3006,
+        "host": "127.0.0.1",
+        "session": false,
+        "cookie secret": "PcIjQjNMjs",
+        "auth": true,
+        "mongo": "mongodb://localhost:27017/database1",
+        "mongoose": {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": 300000,
+                    "connectTimeoutMS": 30000
+                }
+            }
+        },
+        "trust proxy": true,
+        "wysiwyg override toolbar": false,
+        "wysiwyg menubar": true,
+        "wysiwyg images": true,
+        "wysiwyg skin": "lightgray",
+        "wysiwyg additional buttons": "searchreplace, paste, fullscreen, forecolor, media, preview",
+        "wysiwyg additional plugins": "example, table, anchor, autolink, autosave, contextmenu, hr, media, paste, preview, print, searchreplace, textcolor, wordcount, importcss",
+        "wysiwyg additional options": {
+            "powerpaste_html_import": "clean",
+            "powerpaste_word_import": "clean",
+            "uploadimage_form_url": "/api/admin/upload-image",
+            "entity_encoding": "named"
+        }
+    }
+}
