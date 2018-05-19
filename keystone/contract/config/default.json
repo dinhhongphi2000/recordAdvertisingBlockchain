@@ -1,0 +1,20 @@
+{
+    "sender" : {
+        "address" : "0x6A7557fbd52f05dD766473970bF1B322042a95F5"
+    },
+    "provider" : {
+        "host" : "http://127.0.0.1:8545",
+        "gas" : 2000000,
+        "gasprice" : 2000
+    },
+    "compile" : {
+        "output"  : "./output/LoggingCompiled.json"
+    },
+    "deploy" : {
+        "contract" : "./output/LoggingContract.json"
+    },
+    "contract" : {
+        "sourceCode" : "LoggingContract.sol",
+        "name" : ":LoggingContract"
+    }
+}
