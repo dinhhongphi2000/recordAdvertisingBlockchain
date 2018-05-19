@@ -5,7 +5,7 @@
             "/assert/"
         ],
         "favicon": "public/favicon.ico",
-        "auto update": false,
+        "auto update": true,
         "user model": "User",
         "ga property": "UA-62254320-3",
         "port": 3006,
