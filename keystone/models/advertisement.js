@@ -11,5 +11,5 @@ Advertisement.add({
 	producer: { type: String, require: true },
 	url: { type: String, require: true }
 })
-
+Advertisement.defaultColumns = 'name, state, duration, producer'
 Advertisement.register();

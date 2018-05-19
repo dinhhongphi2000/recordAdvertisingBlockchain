@@ -10,5 +10,5 @@ Film.add({
 	poster: { type: String, require: true },
 	url: { type: String, require: true }
 })
-
+Film.defaultColumns = 'name, state, description'
 Film.register();

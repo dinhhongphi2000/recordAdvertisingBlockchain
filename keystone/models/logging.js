@@ -13,5 +13,5 @@ Logging.add({
   time: { type: Date, default: Date.now, required: true, initial : false },
   advertisementId: { type: Types.Relationship, required: true, initial : false, ref : 'Advertisement'}
 })
-
+Logging.defaultColumns = 'ip, state, time, advertisementId'
 Logging.register();
