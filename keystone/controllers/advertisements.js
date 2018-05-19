@@ -1,6 +1,8 @@
-var advertisementsModel = require('../models/advertisement.js');
+	
+var advertisementModel = keystone.list('Advertisement').model;
+
 exports.randomVideo = function (req, res) {
-	advertisementsModel.find()
+	advertisementModel.find()
 	.then(doc => {
 		let index = Math.floor(Math.random() * doc.length);
 		res.status(200).json(doc[index]);
