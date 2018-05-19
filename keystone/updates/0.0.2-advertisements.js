@@ -5,66 +5,77 @@ var Advertisement = keystone.list('Advertisement');
 
 var advertisements = [
     {
+        name : "quang cáo gà rán jollibee"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/10.mp4"
     },
     {
+        name : "quang cáo gà rán jollibee"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/11.mp4"
     },
     {
+        name : "quang cáo nước tăng lực compact"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/12.mp4"
     },
     {
+        name : "quang cáo tủ lạnh samsung"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/13.mp4"
     },
     {
+        name : "quang cáo nước 7up"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/14.mp4"
     },
     {
+        name : "quang cáo lotteria"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/15.mp4"
     },
     {
+        name : "quang cáo sữa bò vinamilk"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/16.mp4"
     },
     {
+        name : "quang cáo sữa susu vinamilk"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/17.mp4"
     },
     {
+        name : "quang cáo sữa susu vinamilk"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/18.mp4"
     },
     {
+        name : "quang cáo rules of survival"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
         url : "/video/advertisements/19.mp4"
     },
     {
+        name : "quang cáo nước ép cam"
         description : "quang cao ...",
         duration : 10,
         producer : "cong ty a",
