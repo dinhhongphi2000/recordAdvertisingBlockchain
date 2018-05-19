@@ -19,9 +19,11 @@
  */
 
 var keystone = require('keystone');
+var express = require('express')
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 var controllers = require('../controllers')
+var api = require('./api')
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -33,16 +35,13 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
+	//static files
+	app.use(express.static(__dirname + '/assert/'))
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/films', controllers.films.getAllFilms)
-	app.get('/films/:id', controllers.films.getFilmById)
-	app.get('/advertisements/random', controllers.advertisements.randomVideo)
-	app.post('/loggings/addLogging', controllers.loggings.addLogging)
-	app.get('/hello', function(req,res, next) {
-		res.send('Hello');
-		next();
-	})
+
+	app.use('/api', api)
+
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 

@@ -2,7 +2,7 @@
     "init": {
         "less": "public",
         "static": [
-            "/assert/"
+            "/assert"
         ],
         "favicon": "public/favicon.ico",
         "auto update": true,

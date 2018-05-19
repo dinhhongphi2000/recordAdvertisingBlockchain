@@ -1,7 +1,8 @@
-var filmsModel = require('../models/film.js');
+var filmModel = keystone.list('Film').model;
+
 exports.getFilmById = function(req,res){
 	var flag = 0;
-	filmsModel.findById(req.params.id)
+	filmModel.findById(req.params.id)
 	.then(doc => {
 		res.status(200).json(doc)
 	})
@@ -10,7 +11,7 @@ exports.getFilmById = function(req,res){
 	})
 }
 exports.getAllFilms = function(req,res){
-	filmsModel.find()
+	filmModel.find()
 	.then(doc => {
 	    res.status(200).json(doc)
 	})
