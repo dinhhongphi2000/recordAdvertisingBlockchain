@@ -1,0 +1,7 @@
+{
+    "log" : {
+        "api" : {
+            "enable" : true
+        }
+    }
+}
