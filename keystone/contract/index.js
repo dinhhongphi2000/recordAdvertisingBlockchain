@@ -1,26 +1,26 @@
 
 
 let Web3 = require('web3')
-
+let config = require('config')
 let web3 = undefined
-let contractInstance = require('./output/LoggingContract.json')
+let contractInstance = require(config.deploy.contract)
 
 if (typeof web3 !== 'undefined') {
     web3 = new Web3(web3.currentProvider);
 } else {
     // set the provider you want from Web3.providers
-    web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+    web3 = new Web3(new Web3.providers.HttpProvider(config.provider.host));
 }
 
 var loggingContract = new web3.eth.Contract(contractInstance.options.jsonInterface,
     contractInstance.options.address, {
-    from : '0x6A7557fbd52f05dD766473970bF1B322042a95F5',
+    from : config.sender.address,
     gas : 2000000
 });
 
-loggingContract.methods.getOwner().call(function(err,data){
-    console.log(data)
-})
+// loggingContract.methods.getOwner().call(function(err,data){
+//     console.log(data)
+// })
 // web3.eth.getBlockNumber((err, result) => {
 //     if(err) console.log(err)
 //     else
@@ -49,13 +49,13 @@ loggingContract.methods.getOwner().call(function(err,data){
 //  })
 
 
-// loggingContract.methods.loggin('dsfsf', 'sdfsdf').send(null, function (e, c) {
-//     if (e) console.log(e)
-//     else
-//         console.log(c)
-// });
-// loggingContract.methods.getMessage(0).call(null, function (e, c) {
-//     if (e) console.log(e)
-//     else
-//         console.log(JSON.stringify(c))
-// });
+loggingContract.methods.log('dsfsf', 'sdfsdf').send(null, function (e, c) {
+    if (e) console.log(e)
+    else
+        console.log(c)
+});
+loggingContract.methods.getMessage(0).call(null, function (e, c) {
+    if (e) console.log(e)
+    else
+        console.log(JSON.stringify(c))
+});
