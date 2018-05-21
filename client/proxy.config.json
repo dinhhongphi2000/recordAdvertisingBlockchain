@@ -10,9 +10,5 @@
     "/images" : {
         "target": "http://localhost:3006",
        "secure": false                      
-    },
-    "/api/advertisements/random" : {
-        "target": "http://localhost:3006",
-       "secure": false                      
     }
  }

@@ -4,3 +4,4 @@
 **/*.mp4
 package-lock.json
 .vscode/**
+output
