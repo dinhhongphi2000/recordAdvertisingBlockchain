@@ -35,9 +35,19 @@ export class SingleComponent implements OnInit {
         err => {
           console.log(err);
         }
+      );
+      this.movieService.getAMovie(this.id)
+      .subscribe(
+        result => {
+          this.movie = result;
+        },
+        err => {
+          console.log(err);
+        }
       )
  
-  }
+  })
+}
 
 
 }
