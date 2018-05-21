@@ -3,8 +3,8 @@ var ComponentVideoJS = videojs.getComponent('Component');
 
 export class SkipButton {
     private component: any;
-    private player : any;
-    private superComponent : any
+    private player: any;
+    private superComponent: any
 
     constructor() {
         let self = this;
@@ -13,7 +13,7 @@ export class SkipButton {
                 ComponentVideoJS.apply(this, arguments);
                 self.player = player;
                 self.superComponent = this;
-                self.countDownToCloseAds(player)
+                self.countDownToCloseAds(player);
             },
             createEl: function () {
                 return videojs.dom.createEl('div', {
@@ -36,20 +36,24 @@ export class SkipButton {
         this.updateTextContent("Skip in " + maxTime);
         let self = this
         let timeout: number
+        let before: number = 0;
         timeout = <any>setInterval(function () {
-            --maxTime
-            self.updateTextContent("Skip in " + maxTime);
-            if (maxTime <= 0) {
-                self.updateTextContent("Click to skip ads");
-                window.clearInterval(timeout);
-                //allow close ads
-                self.superComponent.on('click', function () {
-                    player.ads.endLinearAdMode()
-                    player.trigger('ads-ad-started');
-                    player.removeChild('skipButton');
-                });
+            if (player.currentTime() - before >= 1) {
+                before = player.currentTime();
+                --maxTime
+                self.updateTextContent("Skip in " + maxTime);
+                if (maxTime <= 0) {
+                    self.updateTextContent("Click to skip ads");
+                    window.clearInterval(timeout);
+                    //allow close ads
+                    self.superComponent.on('click', function () {
+                        player.ads.endLinearAdMode()
+                        player.trigger('ads-ad-started');
+                        player.removeChild('skipButton');
+                    });
+                }
             }
-        }, 1000)
+        }, 500)
     }
 
     /**

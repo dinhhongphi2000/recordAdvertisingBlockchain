@@ -26,7 +26,6 @@ export class SingleComponent implements OnInit {
 
   ngAfterViewInit() {
     this.route.params.forEach((params: Params) => {
-
       this.id = params['id'];
       this.adService.GetRandom()
       .subscribe(
@@ -37,20 +36,7 @@ export class SingleComponent implements OnInit {
           console.log(err);
         }
       )
-
-      this.movieService.getAMovie(this.id)
-      .subscribe(
-        result => {
-          this.movie = result;
-          this.src = this.movie.url;
-          console.log(this.movie);
-        },
-        err =>{
-          console.log(err);
-        }
-      )
-
-    });
+ 
   }
 
 
