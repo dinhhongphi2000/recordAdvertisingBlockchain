@@ -1,14 +1,14 @@
 {
     "/video": {
-       "target": "http://localhost:8080",
+       "target": "http://localhost:3006",
        "secure": false
     },
     "/api" : {
-        "target": "http://localhost:8080",
+        "target": "http://localhost:3006",
         "secure": false
     },
     "/images" : {
-        "target": "http://localhost:8080",
+        "target": "http://localhost:3006",
        "secure": false                      
     }
  }

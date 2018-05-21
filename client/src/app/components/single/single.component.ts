@@ -10,6 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class SingleComponent implements OnInit {
   src :any = undefined;
+  id : string;
   movie : Movie = new Movie();
   constructor(
     private movieService : MoviesService,
@@ -24,9 +25,9 @@ export class SingleComponent implements OnInit {
   ngAfterViewInit() {
     this.route.params.forEach((params: Params) => {
 
-      let id = +params['id'];
+      this.id = params['id'];
 
-      this.movieService.getAMovie(id.toString())
+      this.movieService.getAMovie(this.id)
       .subscribe(
         result => {
           this.movie = result;

@@ -19,7 +19,7 @@ export class MainPageComponent implements OnInit {
   }
 
   movieList : Movie[];
-  items : string[] = [];
+  
 
   constructor(
     private movieService : MoviesService,
@@ -39,8 +39,6 @@ export class MainPageComponent implements OnInit {
     .subscribe(
       result => {
       this.movieList = result;
-      console.log(this.items);
-      this.getURL(result);
       console.log(this.movieList);
     },
       err => {
@@ -49,11 +47,7 @@ export class MainPageComponent implements OnInit {
     )
   }
 
-  getURL(list : Movie[]){
-    list.forEach(element => {
-      this.items.push(element.poster);
-    });
-  }
+ 
 
 
 }
