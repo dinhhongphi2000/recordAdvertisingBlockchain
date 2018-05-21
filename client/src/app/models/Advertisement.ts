@@ -1,3 +1,3 @@
-export interface Advertisement {
-    url : String
+export class Advertisement {
+    public url : string;
 }

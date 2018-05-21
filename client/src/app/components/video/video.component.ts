@@ -43,14 +43,19 @@ export class VideoComponent implements AfterViewChecked {
     this.player.on('readyforpreroll', () => {
       console.log('readyforpreroll');
       self.player.ads.startLinearAdMode();
-
       //get random advetisement
-      self.advertisementService.getRandom().subscribe((data: Advertisement) => {
+      self.advertisementService.GetRandom().subscribe(
+        (data: Advertisement) => {
+        console.log(data);
         self.player.src({
           src:  data.url,
           type: 'video/mp4'
         });
-      })
+        },
+        err =>{
+          console.log(err);
+        }
+    )
 
       //trigger to remove spinner
       self.player.on('adplaying', function () {
