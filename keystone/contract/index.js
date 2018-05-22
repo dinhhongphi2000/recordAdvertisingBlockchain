@@ -14,9 +14,9 @@ if (typeof web3 !== 'undefined') {
 
 var loggingContract = new web3.eth.Contract(contractInstance.options.jsonInterface,
     contractInstance.options.address, {
-    from : config.sender.address,
-    gas : 2000000
-});
+        from: config.sender.address,
+        gas: config.provider.gas
+    });
 
 // loggingContract.methods.getOwner().call(function(err,data){
 //     console.log(data)
@@ -49,13 +49,25 @@ var loggingContract = new web3.eth.Contract(contractInstance.options.jsonInterfa
 //  })
 
 
-loggingContract.methods.log('dsfsf', 'sdfsdf').send(null, function (e, c) {
-    if (e) console.log(e)
-    else
-        console.log(c)
-});
-loggingContract.methods.getMessage(0).call(null, function (e, c) {
-    if (e) console.log(e)
-    else
-        console.log(JSON.stringify(c))
-});
+
+// loggingContract.methods.getMessage(0).call(null, function (e, c) {
+//     if (e) console.log(e)
+//     else
+//         console.log(JSON.stringify(c))
+// });
+
+class LoggingContract {
+    static log(data, cb) {
+        loggingContract.methods.log(data).send(null, function (e, c) {
+            if (e) {
+                cb(e)
+            }
+            else{
+                cb(null,c)
+            }
+                
+        });
+    }
+}
+
+module.exports = LoggingContract;
