@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { AdvertisementService } from './advertisement.service';
 
-describe('AdvetisementServiceService', () => {
+describe('AdvertisementService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [AdvertisementService]
