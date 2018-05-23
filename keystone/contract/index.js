@@ -58,7 +58,8 @@ var loggingContract = new web3.eth.Contract(contractInstance.options.jsonInterfa
 
 class LoggingContract {
     static log(data, cb) {
-        loggingContract.methods.log(data).send(null, function (e, c) {
+        let datetime = Date.now().toString();
+        loggingContract.methods.log(datetime,data).send(null, function (e, c) {
             if (e) {
                 cb(e)
             }
