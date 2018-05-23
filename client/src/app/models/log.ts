@@ -3,6 +3,5 @@ export class Log {
    public agent : string;
    public ip : string;
    public duration : number;
-   public time : string;
    public advertisementId : string;
 }
