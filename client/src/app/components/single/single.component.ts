@@ -28,14 +28,26 @@ export class SingleComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       this.id = params['id'];
       this.adService.GetRandom()
-        .subscribe(
-          result => {
-            console.log(result);
-          },
-          err => {
-            console.log(err);
-          }
-        )
-    })
-  }
+      .subscribe(
+        result => {
+          console.log(result);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+      this.movieService.getAMovie(this.id)
+      .subscribe(
+        result => {
+          this.movie = result;
+        },
+        err => {
+          console.log(err);
+        }
+      )
+ 
+  })
+}
+
+
 }

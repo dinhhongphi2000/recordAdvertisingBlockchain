@@ -5,6 +5,7 @@ require('dotenv').config();
 // Require keystone
 global.keystone = require('keystone');
 global.config = require("config");
+let schedules = require('./utilities/schedules')
 var mongoose = require('mongoose');
 var handlebars = require('express-handlebars');
 // Initialise Keystone with your project's configuration.

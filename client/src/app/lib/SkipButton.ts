@@ -4,16 +4,15 @@ var ComponentVideoJS = videojs.getComponent('Component');
 export class SkipButton {
     private component: any;
     private player: any;
-    private superComponent: any
-
-    constructor() {
+    private superComponent: any;
+    constructor(skipCallback) {
         let self = this;
         this.component = videojs.extend(ComponentVideoJS, {
             constructor: function (player, options) {
                 ComponentVideoJS.apply(this, arguments);
                 self.player = player;
                 self.superComponent = this;
-                self.countDownToCloseAds(player);
+                self.countDownToCloseAds(player, skipCallback);
             },
             createEl: function () {
                 return videojs.dom.createEl('div', {
@@ -32,7 +31,7 @@ export class SkipButton {
      * @param player videojs player
      * @param maxTime minimum time to skip advertisement
      */
-    private countDownToCloseAds(player, maxTime = 3) {
+    private countDownToCloseAds(player, skipCallback, maxTime = 3) {
         this.updateTextContent("Skip in " + maxTime);
         let self = this
         let timeout: number
@@ -46,11 +45,7 @@ export class SkipButton {
                     self.updateTextContent("Click to skip ads");
                     window.clearInterval(timeout);
                     //allow close ads
-                    self.superComponent.on('click', function () {
-                        player.ads.endLinearAdMode()
-                        player.trigger('ads-ad-started');
-                        player.removeChild('skipButton');
-                    });
+                    self.superComponent.on('click', skipCallback);
                 }
             }
         }, 500)
