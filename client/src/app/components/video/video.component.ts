@@ -4,9 +4,12 @@ import { AdvertisementService } from '../../services/advertisement.service'
 import { Advertisement } from '../../models/Advertisement'
 import '../../../../node_modules/videojs-contrib-ads/dist/videojs.ads.js'
 import { SkipButton } from '../../lib/SkipButton';
+import { LoggingService } from '../../services/logging.service'
+import { Log } from '../../models/log';
 
 var adRunNext = 0
 var adInited = 0;
+
 
 @Component({
   selector: 'app-video',
@@ -15,8 +18,10 @@ var adInited = 0;
 })
 export class VideoComponent implements AfterViewChecked {
   player: any = undefined
+  logData : Log;
 
-  constructor(private advertisementService: AdvertisementService) { }
+  constructor(private advertisementService: AdvertisementService,
+    private loggingService: LoggingService) { }
 
   @Input('src') src: String
 
@@ -27,14 +32,17 @@ export class VideoComponent implements AfterViewChecked {
   }
 
   initPlayer() {
-    let skipButton = new SkipButton();
+    self = this;
+    let skipButton = new SkipButton(() => {
+      self.turnOfAds();
+    });
+
     var self = this;
     this.player = videojs('example_video_1', {
       controls: true,
       autoplay: true,
       preload: true,
     }, function () {
-
     })
 
     // Register the component with Video.js, so it can be used in players.
@@ -46,16 +54,18 @@ export class VideoComponent implements AfterViewChecked {
       //get random advetisement
       self.advertisementService.GetRandom().subscribe(
         (data: Advertisement) => {
-        console.log(data);
-        self.player.src({
-          src:  data.url,
-          type: 'video/mp4'
-        });
+          console.log(data);
+          this.logData = new Log();
+          this.logData.advertisementId = data._id;
+          self.player.src({
+            src: data.url,
+            type: 'video/mp4'
+          });
         },
-        err =>{
+        (err) => {
           console.log(err);
         }
-    )
+      )
 
       //trigger to remove spinner
       self.player.on('adplaying', function () {
@@ -64,9 +74,7 @@ export class VideoComponent implements AfterViewChecked {
 
       // resume content when all your linear ads have finished
       self.player.on('adended', function () {
-        console.log('adended');
-        self.player.ads.endLinearAdMode();
-        self.player.removeChild('skipButton', { text: 'Skip' });
+        self.turnOfAds();
       });
     })
 
@@ -93,6 +101,23 @@ export class VideoComponent implements AfterViewChecked {
     } else {
       return false;
     }
+  }
+
+  //log advertisement duration that user watched
+  log() {
+    this.logData.duration = this.player.currentTime();
+    this.loggingService.log(this.logData).subscribe((result) => {
+      console.log("Log success")
+    }, (err) => {
+      console.log("log error")
+    })
+  }
+
+  turnOfAds() {
+    this.player.ads.endLinearAdMode()
+    this.player.trigger('ads-ad-started');
+    this.player.removeChild('skipButton');
+    this.log()
   }
 }
 

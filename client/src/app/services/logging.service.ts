@@ -5,11 +5,11 @@ import { Log } from '../models/log'
 @Injectable()
 export class LoggingService {
 
-  urllog : string = "api/loggings/addLogging";
+  urllog : string = "api/loggings";
   constructor(
     public http : HttpClient,
   ) { }
-  PostALog(log : Log){
+  log(log : Log){
 
      return this.http.post<Log>(this.urllog,log);
   }

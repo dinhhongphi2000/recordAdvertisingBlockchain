@@ -10,17 +10,17 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./single.component.css']
 })
 export class SingleComponent implements OnInit {
-  src :any = undefined;
-  id : string;
-  movie : Movie = new Movie();
+  src: any = undefined;
+  id: string;
+  movie: Movie = new Movie();
   constructor(
-    private movieService : MoviesService,
-    private adService : AdvertisementService,
+    private movieService: MoviesService,
+    private adService: AdvertisementService,
     private route: ActivatedRoute
-  ) { 
-    
+  ) {
+
   }
-  ngOnInit(){
+  ngOnInit() {
 
   }
 

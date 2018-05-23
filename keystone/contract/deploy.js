@@ -3,7 +3,7 @@ let Web3 = require('web3')
 var fs = require('fs')
 var config = require('config')
 
-var contractInstantPath = './output/' + config.compile.outputFile;
+var contractInstantPath = config.deploy.contract;
 let web3 = undefined
 
 if (typeof web3 !== 'undefined') {
