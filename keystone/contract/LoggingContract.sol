@@ -1,23 +1,20 @@
 pragma solidity ^0.4.22;
 contract LoggingContract {
     struct Logging{
-        string date;
-        string message;
+        string createDate;
+        string data;
     }
-    uint itemCount;
-    mapping(uint => Logging) private data;
+    
+    LoggingContract[] private data;
     address private owner;
     
     constructor() public {
         owner = msg.sender;
-        itemCount = 0;
     }
 
-    function log(string d, string m) public {
+    function log(string m) public {
         Logging memory a;
-        a.date = d;
-        a.message = m;
-        data[itemCount++] = a; 
+        a.createDate = now;
     }
     
     function getOwner() public view returns (address){

@@ -48,7 +48,7 @@
         "output"  : "./output/LoggingCompiled.json"
     },
     "deploy" : {
-        "contract" : "./output/LoggingContract.json"
+        "contract" : "../../contract/build/contracts/Logging.json"
     },
     "contract" : {
         "sourceCode" : "LoggingContract.sol",
