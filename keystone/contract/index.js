@@ -12,8 +12,8 @@ if (typeof web3 !== 'undefined') {
     web3 = new Web3(new Web3.providers.HttpProvider(config.provider.host));
 }
 
-var loggingContract = new web3.eth.Contract(contractInstance.options.jsonInterface,
-    contractInstance.options.address, {
+var loggingContract = new web3.eth.Contract(contractInstance.abi,
+    contractInstance.networks['4'].address, {
         from: config.sender.address,
         gas: config.provider.gas
     });
@@ -48,26 +48,27 @@ var loggingContract = new web3.eth.Contract(contractInstance.options.jsonInterfa
 //     }
 //  })
 
-
-
-// loggingContract.methods.getMessage(0).call(null, function (e, c) {
-//     if (e) console.log(e)
-//     else
-//         console.log(JSON.stringify(c))
-// });
-
 class LoggingContract {
-    static log(data, cb) {
-        let datetime = Date.now().toString();
-        loggingContract.methods.log(datetime,data).send(null, function (e, c) {
+    static log(input, cb) {
+        if (!input.adsId || !input.duration)
+            return cb("input data invalid", null);
+        loggingContract.methods.push(input.adsId, input.duration).send(null, function (e, c) {
             if (e) {
                 cb(e)
             }
-            else{
-                cb(null,c)
+            else {
+                cb(null, c)
             }
-                
         });
+    }
+
+    static get(input, cb) {
+        if (!input.adsId)
+            return cb('input data invalid', null);
+        loggingContract.methods.getDuration(`${input.adsId}`).call(null, (e, d) => {
+            if (e) cb(e);
+            else cb(null,d);
+        })
     }
 }
 
