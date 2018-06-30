@@ -2,7 +2,8 @@
     "init": {
         "less": "public",
         "static": [
-            "/assert"
+            "/assert",
+            "/dist"
         ],
         "favicon": "public/favicon.ico",
         "auto update": true,
@@ -13,7 +14,7 @@
         "session": false,
         "cookie secret": "PcIjQjNMjs",
         "auth": true,
-        "mongo": "mongodb://localhost:27017/database1",
+        "mongo": "mongodb://DOAN:thichNghi2031@ds016138.mlab.com:16138/videoplatform?authSource=videoplatform",
         "mongoose": {
             "server": {
                 "socketOptions": {

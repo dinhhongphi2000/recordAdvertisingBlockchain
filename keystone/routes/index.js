@@ -23,6 +23,7 @@ var express = require('express')
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
 var controllers = require('../controllers')
+var path = require('path');
 var api = require('./api')
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
@@ -35,10 +36,10 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
-	//static files
-	app.use(express.static(__dirname + '/assert/'))
 	// Views
-	app.get('/', routes.views.index);
+	app.get('/', function(req,res) {
+		res.sendFile(path.join(__dirname,'../dist/index.html'));
+	});
 
 	app.use('/api', api)
 
