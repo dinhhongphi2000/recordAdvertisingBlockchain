@@ -25,6 +25,7 @@ var importRoutes = keystone.importer(__dirname);
 var controllers = require('../controllers')
 var path = require('path');
 var api = require('./api')
+var proxy = require('express-http-proxy');
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
@@ -36,12 +37,8 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
-	// Views
-	app.get('/', function(req,res) {
-		res.sendFile(path.join(__dirname,'../dist/index.html'));
-	});
-
 	app.use('/api', api)
+	app.use('/', proxy('http://localhost:4200'));
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
