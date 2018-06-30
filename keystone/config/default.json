@@ -2,14 +2,13 @@
     "init": {
         "less": "public",
         "static": [
-            "/assert",
-            "/dist"
+            "/assert"
         ],
         "favicon": "public/favicon.ico",
         "auto update": true,
         "user model": "User",
         "ga property": "UA-62254320-3",
-        "port": 3006,
+        "port": 80,
         "host": "127.0.0.1",
         "session": false,
         "cookie secret": "PcIjQjNMjs",
