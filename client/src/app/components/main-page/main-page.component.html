@@ -23,22 +23,22 @@
 						<div class="thumbnail-image" [ngStyle]="{'background': 'no-repeat scroll center center / 80px 80px'}">
 							
 								<div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-									<a href="single/{{movie._id}}" class="hvr-shutter-out-horizontal"><img src="{{movie.poster}}" title="album-name" class="img-responsive" alt=" " />
+									<a routerLink="single/{{movie._id}}" class="hvr-shutter-out-horizontal"><img src="{{movie.poster}}" title="album-name" class="img-responsive" alt=" " />
 										<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 									</a>
 									<div class="mid-1 agileits_w3layouts_mid_1_home">
 										<div class="w3l-movie-text">
-											<h6><a href="single/{{movie.id}}">{{movie.name}}</a></h6>							
+											<h6><a routerLink="single/{{movie.id}}">{{movie.name}}</a></h6>							
 										</div>
 										<div class="mid-2 agile_mid_2_home">
 											<p>2016</p>
 											<div class="block-stars">
 												<ul class="w3l-ratings">
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+													<li><a routerLink="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a routerLink="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a routerLink="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a routerLink="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a routerLink="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -62,10 +62,10 @@
 <div class="general_social_icons">
 <nav class="social">
 	<ul>
-		<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
-		<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
-		<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
-		<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>				  
+		<li class="w3_twitter"><a routerLink="#">Twitter <i class="fa fa-twitter"></i></a></li>
+		<li class="w3_facebook"><a routerLink="#">Facebook <i class="fa fa-facebook"></i></a></li>
+		<li class="w3_dribbble"><a routerLink="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
+		<li class="w3_g_plus"><a routerLink="#">Google+ <i class="fa fa-google-plus"></i></a></li>				  
 	</ul>
 </nav>
 </div>
@@ -75,31 +75,31 @@
 	<div class="container">
 		<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 			<ul id="myTab" class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Featured</a></li>
-				<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Top viewed</a></li>
-				<li role="presentation"><a href="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">Top Rating</a></li>
-				<li role="presentation"><a href="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">Recently Added</a></li>
+				<li role="presentation" class="active"><a routerLink="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Featured</a></li>
+				<li role="presentation"><a routerLink="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Top viewed</a></li>
+				<li role="presentation"><a routerLink="#rating" id="rating-tab" role="tab" data-toggle="tab" aria-controls="rating" aria-expanded="true">Top Rating</a></li>
+				<li role="presentation"><a routerLink="#imdb" role="tab" id="imdb-tab" data-toggle="tab" aria-controls="imdb" aria-expanded="false">Recently Added</a></li>
 			</ul>
 			<div id="myTabContent" class="tab-content">
 				<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 					<div class="w3_agile_featured_movies">
 						<div *ngFor = "let movie of movieList" class="col-md-2 w3l-movie-gride-agile">
-							<a href="" class="hvr-shutter-out-horizontal"><img src="{{movie.poster}}" title="album-name" class="img-responsive" alt=" " />
+							<a routerLink="" class="hvr-shutter-out-horizontal"><img src="{{movie.poster}}" title="album-name" class="img-responsive" alt=" " />
 								<div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
 							</a>
 							<div class="mid-1 agileits_w3layouts_mid_1_home">
 								<div class="w3l-movie-text">
-									<h6><a href="single.html">{{movie.name}}</a></h6>							
+									<h6><a routerLink="single.html">{{movie.name}}</a></h6>							
 								</div>
 								<div class="mid-2 agile_mid_2_home">
 									<p>2016</p>
 									<div class="block-stars">
 										<ul class="w3l-ratings">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+											<li><a routerLink="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+											<li><a routerLink="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+											<li><a routerLink="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+											<li><a routerLink="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+											<li><a routerLink="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>

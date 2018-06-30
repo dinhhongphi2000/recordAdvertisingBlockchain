@@ -12,6 +12,7 @@ contract Logging {
     uint public count = 0;
     function push(string id, uint duration) public {
         bool flag = false;
+        //find ads with id and plus more duration for it
         for(uint i = 0; i < count; i++){
             if(StringUtils.compare(Logs[i].adsId, id) == 0){
                 Logs[i].duration += duration;
@@ -19,6 +20,7 @@ contract Logging {
                 break;
             }            
         }
+        //not found Log that have id, add new
         if(!flag){
             Logs[count++] = Log(id,duration);
         }

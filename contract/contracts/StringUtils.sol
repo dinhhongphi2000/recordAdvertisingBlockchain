@@ -29,9 +29,9 @@ library StringUtils {
     }
     /// @dev Finds the index of the first occurrence of _needle in _haystack
     function indexOf(string _haystack, string _needle) public pure returns (int){
-    	bytes memory h = bytes(_haystack);
-    	bytes memory n = bytes(_needle);
-    	if(h.length < 1 || n.length < 1 || (n.length > h.length)) 
+        bytes memory h = bytes(_haystack);
+        bytes memory n = bytes(_needle);
+        if(h.length < 1 || n.length < 1 || (n.length > h.length)) 
     		return -1;
     	else if(h.length > (2**128 -1)) // since we have to be able to return -1 (if the char isn't found or input error), this function must return an "int" type with a max length of (2^128 - 1)
     		return -1;									
