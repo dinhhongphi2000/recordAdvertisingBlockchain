@@ -203,6 +203,10 @@ ul#myTab {
     font-size: 1.4em;
     color: #222;
 }
+.w3l-movie-text h6 {
+    height: 3em;
+    overflow: hidden;
+}
 .w3l-movie-text {
 	    margin: 0.7em 0;
 }
@@ -257,9 +261,9 @@ i.glyphicon.glyphicon-play-circle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-	-webkit- border-radius: 50%;
-	-0- border-radius: 50%;
-	-moz- border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-0-border-radius: 50%;
+	-moz-border-radius: 50%;
 }
 .ribben p {
     font-size:0.9em;
