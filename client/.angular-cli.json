@@ -11,7 +11,6 @@
         "assets",
         "favicon.ico",
         "js",
-        "list-js",
         "images",
         "css"
       ],
@@ -36,12 +35,9 @@
         "css/contactstyle.css",
         "css/faqstyle.css",
         "css/single.css",
-        "css/medile.css",
+        "css/medile.css"
         
-        "list-css/basictable.css",
-        "list-css/list.css",
-        "list-css/table-style.css",
-        "news-css/news.css"
+        
       ],
       "scripts": [
         "../node_modules/video.js/dist/video.min.js",
